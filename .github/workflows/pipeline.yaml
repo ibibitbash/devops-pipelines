@@ -1,26 +1,25 @@
 name: CI Pipeline
 
-##what actions on github should trigger this pipeline
+# what actions on github should trigger this pipeline
 on:
   push:
-    branches: [ main ] ##only pushes to main branch will trigger pipeline
+    branches: [ main ]  # only pushes to main branch will trigger pipeline
 
-jobs:  ##group of steps that run together
+jobs:  # group of steps that run together
   build:
     runs-on: ubuntu-latest
 
-  steps: 
-    - name: Checkout code
-      uses: actions/checkout@v5
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
 
-    - name: Set up node.js
-      uses: actions/setup-node@v3
-      with:
+      - name: Set up node.js
+        uses: actions/setup-node@v3
+        with:
           node-version: 16
 
-    - name: Install dependencies
-      run: npm install
+      - name: Install dependencies
+        run: npm install
 
-    - name: Run tests
-      run: npm test
-
+      - name: Run tests
+        run: npm test
